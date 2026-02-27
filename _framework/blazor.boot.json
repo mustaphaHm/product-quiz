@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "ProductGame",
   "resources": {
-    "hash": "sha256-qRM+A01ckJw6d44qmh6mJsczY6wKyiEijjmiMHNU2Xo=",
+    "hash": "sha256-KsgI+sJrp7H8jtN7GqChyk6T1u0t45/J7Ehm/bQ64GA=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Components.Forms.gc94iuciq3.wasm": "Microsoft.AspNetCore.Components.Forms.wasm",
       "Microsoft.AspNetCore.Components.7bhjgih7dn.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -21,7 +21,7 @@
       "Microsoft.JSInterop.q55r9kxtpf.wasm": "Microsoft.JSInterop.wasm",
       "Microsoft.JSInterop.WebAssembly.9ha9u0d294.wasm": "Microsoft.JSInterop.WebAssembly.wasm",
       "MudBlazor.bcno4k0h1n.wasm": "MudBlazor.wasm",
-      "ProductGame.cu93hq2oox.wasm": "ProductGame.wasm",
+      "ProductGame.wnhzr9co6e.wasm": "ProductGame.wasm",
       "System.Collections.Concurrent.ykgx4ah9wi.wasm": "System.Collections.Concurrent.wasm",
       "System.Collections.Immutable.7xxhqczp8m.wasm": "System.Collections.Immutable.wasm",
       "System.Collections.yi4o25hz36.wasm": "System.Collections.wasm",
@@ -90,7 +90,7 @@
       "Microsoft.JSInterop.q55r9kxtpf.wasm": "sha256-3huSIzoU33Y1PfKtukbF1v8fKQuE61Ofs+Boq1QH9y8=",
       "Microsoft.JSInterop.WebAssembly.9ha9u0d294.wasm": "sha256-Tcuwd004G8QsHvZBCcsi/9gqSuDNobes4cttP1A22Aw=",
       "MudBlazor.bcno4k0h1n.wasm": "sha256-1d+zfp0MAUSptIh/VkNG66VtDqwAfCtI/yC0nsGBbL0=",
-      "ProductGame.cu93hq2oox.wasm": "sha256-bDIlpUi9TX2B4Wfgn8lXxrwFxPjGdU8CCHp0lYBeWGc=",
+      "ProductGame.wnhzr9co6e.wasm": "sha256-LMN1uZO5Amd01idDAsFiTfXyl93HnEiJ7njgBz4qcvM=",
       "System.Collections.Concurrent.ykgx4ah9wi.wasm": "sha256-zvGuMvPzRVWZrLPRm0NkVvVu/A/DojG507sAZVx7XA4=",
       "System.Collections.Immutable.7xxhqczp8m.wasm": "sha256-BcAV0iIgXEPrGvLYdqLYbFqCLr2GLTSNqPtlrtgXh2E=",
       "System.Collections.yi4o25hz36.wasm": "sha256-Fo1Y1nFLtHmxqjVkDC/2p8dvsoOyeS4MHWvkEAsSNqw=",
