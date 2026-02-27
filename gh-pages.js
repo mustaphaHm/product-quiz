@@ -14,22 +14,15 @@
         var q = {};
         l.search.slice(1).split('&').forEach(function (v) {
             var a = v.split('=');
-            q[a[0]] = a.slice(1)
-                .join('=')
-                .replace(/~and~/g, '&');
+            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
         });
         if (q.p !== undefined) {
-            // Added support for non-main repos based on https://jkdev.me/publish-client-side-blazor-to-github-pages/?cse
-            var repoName = l.pathname.slice(0, -1);
-            if (q.p !== undefined) {
-                q.p = q.p.replace(`${repoName}/`, '/');
-            }
-
             window.history.replaceState(null, null,
-                repoName + (q.p || '') +
+                l.pathname +
+                (q.p || '') +
                 (q.q ? ('?' + q.q) : '') +
                 l.hash
             );
         }
     }
-}(window.location))
+}(window.location));
