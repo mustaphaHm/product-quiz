@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "ProductGame",
   "resources": {
-    "hash": "sha256-B+zEfDVWTE9dPH0C48ohAqk1Bkal0U/8mKUr66BER3w=",
+    "hash": "sha256-7ww6AGdz3zTRrja9DfTGKxu9t0ig6O4Q7hlOJHFvvSw=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Components.Forms.gc94iuciq3.wasm": "Microsoft.AspNetCore.Components.Forms.wasm",
       "Microsoft.AspNetCore.Components.7bhjgih7dn.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -20,8 +20,8 @@
       "Microsoft.Extensions.Primitives.k90wu7b1ui.wasm": "Microsoft.Extensions.Primitives.wasm",
       "Microsoft.JSInterop.q55r9kxtpf.wasm": "Microsoft.JSInterop.wasm",
       "Microsoft.JSInterop.WebAssembly.9ha9u0d294.wasm": "Microsoft.JSInterop.WebAssembly.wasm",
-      "MudBlazor.bcno4k0h1n.wasm": "MudBlazor.wasm",
-      "ProductGame.jm9hrcb16y.wasm": "ProductGame.wasm",
+      "MudBlazor.p8h1jyq1tk.wasm": "MudBlazor.wasm",
+      "ProductGame.3qcx8sog7i.wasm": "ProductGame.wasm",
       "System.Collections.Concurrent.ykgx4ah9wi.wasm": "System.Collections.Concurrent.wasm",
       "System.Collections.Immutable.7xxhqczp8m.wasm": "System.Collections.Immutable.wasm",
       "System.Collections.yi4o25hz36.wasm": "System.Collections.wasm",
@@ -89,8 +89,8 @@
       "Microsoft.Extensions.Primitives.k90wu7b1ui.wasm": "sha256-WBPsPQFb0cpGaVdtCbg+kF9cj3ijLq9F3gCcKAYUPOg=",
       "Microsoft.JSInterop.q55r9kxtpf.wasm": "sha256-3huSIzoU33Y1PfKtukbF1v8fKQuE61Ofs+Boq1QH9y8=",
       "Microsoft.JSInterop.WebAssembly.9ha9u0d294.wasm": "sha256-Tcuwd004G8QsHvZBCcsi/9gqSuDNobes4cttP1A22Aw=",
-      "MudBlazor.bcno4k0h1n.wasm": "sha256-1d+zfp0MAUSptIh/VkNG66VtDqwAfCtI/yC0nsGBbL0=",
-      "ProductGame.jm9hrcb16y.wasm": "sha256-++VB9A1XObULgXRE0J8YR32MN6vptA8gQzd0Pqoz7RE=",
+      "MudBlazor.p8h1jyq1tk.wasm": "sha256-iagE5m7BPrVE/T58wWW45CaSSsVyG/RkagK+d8UVD80=",
+      "ProductGame.3qcx8sog7i.wasm": "sha256-qzarON1vhxAZqebwKjkH2cfB3jLKAwf61VDFiiZ74bo=",
       "System.Collections.Concurrent.ykgx4ah9wi.wasm": "sha256-zvGuMvPzRVWZrLPRm0NkVvVu/A/DojG507sAZVx7XA4=",
       "System.Collections.Immutable.7xxhqczp8m.wasm": "sha256-BcAV0iIgXEPrGvLYdqLYbFqCLr2GLTSNqPtlrtgXh2E=",
       "System.Collections.yi4o25hz36.wasm": "sha256-Fo1Y1nFLtHmxqjVkDC/2p8dvsoOyeS4MHWvkEAsSNqw=",
