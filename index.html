@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إدارة المنتجات</title>
+    <base href="/" />
+     <!-- <script>
+        (function(l) {
+            if (l.search[1] === '/' ) {
+                var decoded = l.search.slice(1).split('&').map(function(s) { 
+                    return s.replace(/~and~/g, '&');
+                }).join('?');
+                window.history.replaceState(null, null,
+                    l.pathname.slice(0, -1) + decoded + l.hash
+                );
+            }
+        }(window.location));
+    </script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="app">
+        <div style="display:flex;align-items:center;justify-content:center;height:100vh;flex-direction:column;gap:16px;background:#0f1117;">
+            <div style="font-size:2.5rem;">🛒</div>
+            <div style="color:#f0c040;font-weight:900;font-size:1.2rem;font-family:sans-serif;">جارٍ التحميل...</div>
+        </div>
+    </div>
+    <div id="blazor-error-ui">
+        خطأ غير متوقع. <a href="" class="reload">إعادة تحميل</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+    <script src="gh-pages.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+</html>

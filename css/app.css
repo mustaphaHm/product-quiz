@@ -1,0 +1,41 @@
+* { box-sizing: border-box; }
+
+html, body {
+    font-family: 'Tajawal', sans-serif;
+    background: #0f1117;
+    color: #ecedf5;
+    direction: rtl;
+}
+
+/* MudBlazor dark overrides */
+.mud-table-root { background: transparent !important; }
+.mud-table-head .mud-table-cell { color: #6b7090 !important; font-weight: 700; }
+.mud-table-body .mud-table-row:hover { background: #22263a !important; }
+.mud-input-root { color: #ecedf5 !important; }
+.mud-input-outlined .mud-notched-outline { border-color: #2a2e42 !important; }
+.mud-input-outlined:hover .mud-notched-outline,
+.mud-input-outlined.mud-input-root-focused .mud-notched-outline { border-color: #f0c040 !important; }
+.mud-input-label { color: #6b7090 !important; }
+.mud-input-label.mud-input-label-inputfocused { color: #f0c040 !important; }
+.mud-nav-link.active { background: rgba(240,192,64,.12) !important; color: #f0c040 !important; }
+.mud-chip { font-family: 'Tajawal', sans-serif !important; }
+.mud-button-root { font-family: 'Tajawal', sans-serif !important; }
+.mud-dialog { background: #1a1d27 !important; direction: rtl; }
+.mud-dialog-title { color: #ecedf5 !important; }
+.mud-dialog-content { color: #ecedf5 !important; }
+.mud-snackbar { font-family: 'Tajawal', sans-serif !important; }
+.mud-alert { font-family: 'Tajawal', sans-serif !important; }
+
+/* field correct/wrong states */
+.field-correct .mud-input-outlined .mud-notched-outline { border-color: #4caf82 !important; }
+.field-correct .mud-input-root { background: #0d2018 !important; }
+.field-wrong .mud-input-outlined .mud-notched-outline { border-color: #e05c5c !important; }
+.field-wrong .mud-input-root { background: #200d0d !important; }
+
+#blazor-error-ui {
+    background: #e05c5c;
+    bottom: 0; box-shadow: 0 -1px 2px rgba(0,0,0,.2);
+    display: none; left: 0; padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed; width: 100%; z-index: 1000;
+}
+#blazor-error-ui .dismiss { cursor: pointer; position: absolute; right: 0.75rem; top: 0.5rem; }
