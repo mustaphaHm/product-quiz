@@ -76,21 +76,66 @@ window.db = (() => {
 })();
 
 // ── Read file input as base64 data URL ────────────
-window.readFileAsBase64 = (inputId) => {
+window.readFileAsBase64 = () => {
     return new Promise((resolve) => {
-        const input = document.getElementById(inputId);
-        if (!input || !input.files || !input.files[0]) { resolve(null); return; }
-        const reader = new FileReader();
-        reader.onload  = e => resolve(e.target.result); // "data:image/jpeg;base64,..."
-        reader.onerror = () => resolve(null);
-        reader.readAsDataURL(input.files[0]);
+        // Poll briefly for the image to be ready (resize is async)
+        let attempts = 0;
+        const check = setInterval(() => {
+            attempts++;
+            if (window._lastFileBase64) {
+                clearInterval(check);
+                const result = window._lastFileBase64;
+                window._lastFileBase64 = null;
+                resolve(result);
+            } else if (attempts > 40) { // 2 seconds timeout
+                clearInterval(check);
+                resolve(null);
+            }
+        }, 50);
     });
 };
-
 // ── Programmatically click a file input ───────────
+window._lastFileBase64 = null;
+
 window.triggerClick = (id) => {
     const el = document.getElementById(id);
-    if (el) el.click();
+    if (!el) return;
+
+    // Attach onchange handler that reads immediately on mobile
+    el.onchange = () => {
+        if (!el.files || !el.files[0]) {
+            window._lastFileBase64 = null;
+            return;
+        }
+        const file = el.files[0];
+
+        // Resize large images before storing (important for mobile camera photos)
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                const MAX = 800; // max width or height in px
+                let w = img.width;
+                let h = img.height;
+
+                if (w > MAX || h > MAX) {
+                    if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+                    else       { w = Math.round(w * MAX / h); h = MAX; }
+                }
+
+                const canvas = document.createElement('canvas');
+                canvas.width  = w;
+                canvas.height = h;
+                canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+                window._lastFileBase64 = canvas.toDataURL('image/jpeg', 0.80);
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    };
+
+    el.value = ''; // reset so same file can be picked again
+    el.click();
 };
 
 // ── Excel parser (SheetJS) ────────────────────────
