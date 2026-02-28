@@ -107,3 +107,90 @@ window.parseExcel = function(base64) {
         return out;
     }));
 };
+
+// ── Add this block to your existing app.js ──────────────────────────────────
+
+window.cameraHelper = {
+    _stream: null,
+
+    // Start camera stream into a <video> element
+    async start(videoId) {
+        const video = document.getElementById(videoId);
+        if (!video) throw new Error('Video element not found: ' + videoId);
+
+        this._stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 960 } },
+            audio: false
+        });
+        video.srcObject = this._stream;
+        await video.play();
+    },
+
+    // Stop all camera tracks
+    stop() {
+        if (this._stream) {
+            this._stream.getTracks().forEach(t => t.stop());
+            this._stream = null;
+        }
+    },
+
+    // Capture current video frame → base64 JPEG data URI
+    capture(videoId, canvasId) {
+        const video  = document.getElementById(videoId);
+        const canvas = document.getElementById(canvasId);
+        if (!video || !canvas) return null;
+
+        canvas.width  = video.videoWidth  || 640;
+        canvas.height = video.videoHeight || 480;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // Return as JPEG at 85% quality to keep size reasonable
+        return canvas.toDataURL('image/jpeg', 0.85);
+    },
+
+    // Read a file input → base64 data URI
+    readFile(inputId) {
+        return new Promise((resolve, reject) => {
+            const input = document.getElementById(inputId);
+            if (!input || !input.files || input.files.length === 0) {
+                resolve(null);
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload  = e => resolve(e.target.result);
+            reader.onerror = () => reject(new Error('File read failed'));
+            reader.readAsDataURL(input.files[0]);
+        });
+    }
+};
+
+// ── Add this to your existing wwwroot/js/app.js ─────────────────────────────
+
+window.exportToExcel = function (rows, sheetName) {
+    // rows: array of arrays, first row is headers
+    const ws = XLSX.utils.aoa_to_sheet(rows);
+
+    // Column widths
+    ws['!cols'] = [
+        { wch: 30 }, // الاسم
+        { wch: 16 }, // سعر القطعة
+        { wch: 16 }, // سعر الزينة
+        { wch: 16 }, // سعر الكرتون
+        { wch: 14 }, // قطع/كرتون
+        { wch: 14 }, // زينات/كرتون
+        { wch: 14 }, // قطع/زينة
+        { wch: 10 }, // لديه زينة
+        { wch: 10 }, // مفضلة
+    ];
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, sheetName || 'Sheet1');
+
+    const date     = new Date();
+    const dateStr  = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+    const fileName = `المنتجات_${dateStr}.xlsx`;
+
+    XLSX.writeFile(wb, fileName);
+};
