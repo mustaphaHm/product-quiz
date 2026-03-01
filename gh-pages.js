@@ -17,9 +17,11 @@
             q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
         });
         if (q.p !== undefined) {
+            // Strip leading slash from q.p to avoid double slash with pathname
+            var path = (q.p || '').replace(/^\//, '');
             window.history.replaceState(null, null,
                 l.pathname +
-                (q.p || '') +
+                path +
                 (q.q ? ('?' + q.q) : '') +
                 l.hash
             );
